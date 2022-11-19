@@ -37,8 +37,11 @@
   
 
   <ItemGroup>
+    <!--
     <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.0"/>
     <Reference Include="System.Text.Json.dll" />
+    -->
+    
     <!--
     <Reference Include="System.dll" />
     <Reference Include="System.Data.dll" />
