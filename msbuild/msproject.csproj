@@ -1,0 +1,73 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <AssemblyName>example</AssemblyName>
+    <OutputPath>Bin\</OutputPath>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <!--
+  <Target Name="ValidateToolsDllExists">
+    <Error
+        Text=" The ToolsDllPath property must be set on the command line."
+        Condition="'$(ToolsDllPath)' == ''" />
+    <Error
+        Text=" The ToolsDllPath property must be set to the full path to tools.dll."
+        Condition="!Exists('$(ToolsDllPath)')" />
+  </Target>
+  -->
+
+  <!--
+  <PropertyGroup>
+     <ToolsDllPath Condition="'$(ToolsDllPath)'==''">C:\Program Files\dotnet\sdk\7.0.100\Sdks\Microsoft.NET.Sdk\tools\net472\System.Text.Json.dll</ToolsDllPath>
+  </PropertyGroup>
+  <ItemGroup>
+     <Reference Include="Tools">
+        <HintPath>$(ToolsDllPath)</HintPath>
+     </Reference>
+  </ItemGroup>
+  -->
+
+  <!--
+    
+    <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\5.0.17"/>
+    <Reference Include="System.Text.Json.dll"/>
+  -->
+  
+
+  <ItemGroup>
+    <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.0"/>
+    <Reference Include="System.Text.Json.dll" />
+    <!--
+    <Reference Include="System.dll" />
+    <Reference Include="System.Data.dll" />
+    <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.11"/>
+    -->
+  </ItemGroup>
+
+  <!--
+  <ItemGroup>
+    <Reference Include="C:\Program Files\dotnet\sdk\7.0.100\Sdks\Microsoft.NET.Sdk\tools\net472\*.dll">
+    </Reference>
+  </ItemGroup>
+  -->
+
+  <ItemGroup>
+    <Source Include="hello.cs"/>
+  </ItemGroup>
+
+  <!--
+      AdditionalLibPaths="libs\System.Text.Json.7.0.0\lib\net462"
+  -->
+
+  <Target Name="Build">
+    <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+    <Csc Sources="@(Source)"
+      OutputAssembly="$(OutputPath)$(AssemblyName).exe"
+      AdditionalLibPaths="@(AdditionalLibPath)"
+      References="@(Reference)"
+      />
+    <Message Text="The output file is $(AssemblyName).exe"/>
+  </Target>  
+</Project>
