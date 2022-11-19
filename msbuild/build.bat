@@ -41,6 +41,7 @@ REM === All
 REM ===============================
 :ALL
 CALL :BUILD
+CALL :RUN
 @GOTO :EOF
 
 REM ===============================
