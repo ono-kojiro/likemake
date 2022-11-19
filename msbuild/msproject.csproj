@@ -1,5 +1,9 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
+<PropertyGroup>
+ <TargetFramework>net462</TargetFramework>
+</PropertyGroup>
+
   <PropertyGroup>
     <AssemblyName>example</AssemblyName>
     <OutputPath>Bin\</OutputPath>
@@ -37,13 +41,19 @@
   
 
   <ItemGroup>
+    <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.11"/>
+
     <!--
+    <AdditionalLibPath Include="C:\Program Files\dotnet\packs\NETStandard.Library.Ref\2.1.0\ref\netstandard2.1"/>
+    <AdditionalLibPath Include="C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\7.0.0\ref\net7.0"/>
+    <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\5.0.17"/>
+    <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.0"/>
     <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.0"/>
     <Reference Include="System.Text.Json.dll" />
     -->
-    
-    <!--
+
     <Reference Include="System.dll" />
+    <!--
     <Reference Include="System.Data.dll" />
     <AdditionalLibPath Include="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.11"/>
     -->
@@ -61,7 +71,6 @@
   </ItemGroup>
 
   <!--
-      AdditionalLibPaths="libs\System.Text.Json.7.0.0\lib\net462"
   -->
 
   <Target Name="Build">

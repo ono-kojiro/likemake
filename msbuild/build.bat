@@ -55,6 +55,7 @@ REM ===============================
 REM === Build
 REM ===============================
 :BUILD
+msbuild -t:restore
 MSBuild.exe -t:Build !PROJECT! -property:Configuration=Debug
 @GOTO :EOF
 
